@@ -1,0 +1,238 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="using:PhotoStudio.ViewModels"
+             mc:Ignorable="d" d:DesignWidth="1200" d:DesignHeight="800"
+             x:DataType="vm:DashboardViewModel"
+             x:Class="PhotoStudio.Views.ClientDashboardView">
+
+  <Design.DataContext>
+    <vm:DashboardViewModel />
+  </Design.DataContext>
+
+  <Grid ColumnDefinitions="240,*">
+    <!-- Боковая панель -->
+    <Border Grid.Column="0" Background="White" BorderBrush="#E5E7EB" BorderThickness="0,0,2,0">
+      <Grid RowDefinitions="Auto,*,Auto">
+        <!-- Заголовок -->
+        <Border Grid.Row="0" Padding="16" BorderBrush="#E5E7EB" BorderThickness="0,0,0,2">
+          <StackPanel Orientation="Horizontal" Spacing="8">
+            <Border Width="32" Height="32" Background="#9333EA" CornerRadius="6">
+              <PathIcon Data="M12,10.8a.8.8,0,1,0,.8.8A.8.8,0,0,0,12,10.8Zm0,8a4.8,4.8,0,1,0-4.8-4.8A4.8,4.8,0,0,0,12,18.8Zm0-8a3.2,3.2,0,1,1-3.2,3.2A3.2,3.2,0,0,1,12,10.8ZM12,4c1,0,7.83.15,9.72,6.72A22.6,22.6,0,0,1,22,14a1.44,1.44,0,0,1-1,1.32c-.23.08-.47.15-.71.21L19,16.23l-.38-1.29.58-.16a3.77,3.77,0,0,0,.58-.17c-.08-.33-.16-.65-.25-1C17.83,8.47,12.82,5.6,12,5.6S6.17,8.47,4.51,13.66c-.09.3-.17.62-.25,1a3.77,3.77,0,0,0,.58.17l.58.16L5,16.23l-1.34-.49c-.24-.06-.48-.13-.71-.21A1.44,1.44,0,0,1,2,14a22.6,22.6,0,0,1,.28-3.28C4.17,4.15,11,4,12,4Z" Foreground="White" Width="20" Height="20" />
+            </Border>
+            <TextBlock Text="PhotoApp" FontWeight="Bold" FontSize="16" VerticalAlignment="Center" />
+          </StackPanel>
+        </Border>
+
+        <!-- Меню -->
+        <StackPanel Grid.Row="1" Spacing="2" Margin="4,16,4,0">
+          <Button Command="{Binding NavigateToView}" CommandParameter="feed"
+                  Background="{Binding CurrentView, Converter={StaticResource DashboardBackgroundConverter}, ConverterParameter=feed}"
+                  Foreground="{Binding CurrentView, Converter={StaticResource DashboardForegroundConverter}, ConverterParameter=feed}"
+                  HorizontalAlignment="Stretch" 
+                  HorizontalContentAlignment="Left"
+                  Height="40"
+                  Padding="16,0">
+            <StackPanel Orientation="Horizontal" Spacing="12" VerticalAlignment="Center">
+              <PathIcon Data="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" Width="16" Height="16" />
+              <TextBlock Text="Лента" VerticalAlignment="Center" />
+            </StackPanel>
+          </Button>
+
+          <Button Command="{Binding NavigateToView}" CommandParameter="search"
+                  Background="{Binding CurrentView, Converter={StaticResource DashboardBackgroundConverter}, ConverterParameter=search}"
+                  Foreground="{Binding CurrentView, Converter={StaticResource DashboardForegroundConverter}, ConverterParameter=search}"
+                  HorizontalAlignment="Stretch" 
+                  HorizontalContentAlignment="Left"
+                  Height="40"
+                  Padding="16,0">
+            <StackPanel Orientation="Horizontal" Spacing="12" VerticalAlignment="Center">
+              <PathIcon Data="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" Width="16" Height="16" />
+              <TextBlock Text="Поиск" VerticalAlignment="Center" />
+            </StackPanel>
+          </Button>
+
+          <Button Command="{Binding NavigateToView}" CommandParameter="favorites"
+                  Background="{Binding CurrentView, Converter={StaticResource DashboardBackgroundConverter}, ConverterParameter=favorites}"
+                  Foreground="{Binding CurrentView, Converter={StaticResource DashboardForegroundConverter}, ConverterParameter=favorites}"
+                  HorizontalAlignment="Stretch" 
+                  HorizontalContentAlignment="Left"
+                  Height="40"
+                  Padding="16,0">
+            <StackPanel Orientation="Horizontal" Spacing="12" VerticalAlignment="Center">
+              <PathIcon Data="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" Width="16" Height="16" />
+              <TextBlock Text="Избранное" VerticalAlignment="Center" />
+            </StackPanel>
+          </Button>
+
+          <Button Command="{Binding NavigateToView}" CommandParameter="my-orders"
+                  Background="{Binding CurrentView, Converter={StaticResource DashboardBackgroundConverter}, ConverterParameter=my-orders}"
+                  Foreground="{Binding CurrentView, Converter={StaticResource DashboardForegroundConverter}, ConverterParameter=my-orders}"
+                  HorizontalAlignment="Stretch" 
+                  HorizontalContentAlignment="Left"
+                  Height="40"
+                  Padding="16,0">
+            <StackPanel Orientation="Horizontal" Spacing="12" VerticalAlignment="Center">
+              <PathIcon Data="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z" Width="16" Height="16" />
+              <TextBlock Text="Мои заказы" VerticalAlignment="Center" />
+            </StackPanel>
+          </Button>
+          <Button Command="{Binding NavigateToView}" CommandParameter="profile"
+                  Background="{Binding CurrentView, Converter={StaticResource DashboardBackgroundConverter}, ConverterParameter=profile}"
+                  Foreground="{Binding CurrentView, Converter={StaticResource DashboardForegroundConverter}, ConverterParameter=profile}"
+                  HorizontalAlignment="Stretch" 
+                  HorizontalContentAlignment="Left"
+                  Height="40"
+                  Padding="16,0">
+            <StackPanel Orientation="Horizontal" Spacing="12" VerticalAlignment="Center">
+              <PathIcon Data="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" Width="16" Height="16" />
+              <TextBlock Text="Профиль" VerticalAlignment="Center" />
+            </StackPanel>
+          </Button>
+        </StackPanel>
+
+        <!-- Кнопка смены роли -->
+        <Border Grid.Row="2" BorderBrush="#E5E7EB" BorderThickness="0,2,0,0" Padding="16">
+          <Button HorizontalAlignment="Stretch" 
+                  HorizontalContentAlignment="Center"
+                  Command="{Binding ChangeRoleCommand}"
+                  Height="40"
+                  Background="Transparent"
+                  BorderThickness="1"
+                  BorderBrush="#D1D5DB"
+                  CornerRadius="4">
+            <TextBlock Text="Сменить роль" />
+          </Button>
+        </Border>
+      </Grid>
+    </Border>
+
+    <!-- Основной контент -->
+    <ScrollViewer Grid.Column="1" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto" Background="#F9FAFB">
+      <ContentControl Padding="24">
+        <!-- Контент клиента (лента фотографов) -->
+        <Grid RowDefinitions="Auto,*" RowSpacing="16">
+          <!-- Заголовок и кнопки -->
+          <Grid Grid.Row="0" ColumnDefinitions="*,Auto" ColumnSpacing="16">
+            <TextBlock Grid.Column="0" Text="Лента фотографов" FontSize="24" FontWeight="Bold" VerticalAlignment="Center" />
+            <StackPanel Grid.Column="1" Orientation="Horizontal" Spacing="8">
+              <Button Background="Transparent" BorderBrush="#D1D5DB" BorderThickness="1" Padding="12,0" Height="40">
+                <StackPanel Orientation="Horizontal" Spacing="8">
+                  <PathIcon Data="M12 3c2.755 0 5.455.232 8.083.678.533.09.917.556.917 1.096v1.044a2.25 2.25 0 01-.659 1.591l-5.432 5.432a2.25 2.25 0 00-.659 1.591v2.927a2.25 2.25 0 01-1.244 2.013L9.75 21v-6.568a2.25 2.25 0 00-.659-1.591L3.659 7.409A2.25 2.25 0 013 5.818V4.774c0-.54.384-1.006.917-1.096A48.32 48.32 0 0112 3z" Width="16" Height="16" />
+                  <TextBlock Text="Фильтры" />
+                </StackPanel>
+              </Button>
+              
+              <Button Background="#2563EB" Foreground="White" Padding="12,0" Height="40">
+                <StackPanel Orientation="Horizontal" Spacing="8">
+                  <PathIcon Data="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" Foreground="White" Width="16" Height="16" />
+                  <TextBlock Text="Поиск" />
+                </StackPanel>
+              </Button>
+            </StackPanel>
+          </Grid>
+
+          <!-- Сетка фотографов -->
+          <ItemsControl Grid.Row="1">
+            <ItemsControl.ItemsPanel>
+              <ItemsPanelTemplate>
+                <UniformGrid Columns="3" />
+              </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+            
+            <ItemsControl.Items>
+              <!-- Фотограф 1 -->
+              <Border Background="White" BorderBrush="#E5E7EB" BorderThickness="2" CornerRadius="8" Margin="8" Width="300">
+                <Grid RowDefinitions="250,Auto">
+                  <!-- Фото из портфолио -->
+                  <Border Grid.Row="0" Background="#F3F4F6">
+                    <Panel>
+                      <Image Source="/Assets/placeholder-image.png" Stretch="UniformToFill" />
+                      <TextBlock Text="Изображение" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#9CA3AF" />
+                    </Panel>
+                  </Border>
+                  
+                  <!-- Информация о фотографе -->
+                  <StackPanel Grid.Row="1" Spacing="12">
+                    <Grid ColumnDefinitions="Auto,*">
+                      <Border Grid.Column="0" Width="40" Height="40" Background="#F3F4F6" CornerRadius="20">
+                        <TextBlock Text="А" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" />
+                      </Border>
+                      <StackPanel Grid.Column="1" Margin="12,0,0,0">
+                        <TextBlock Text="Анна Петрова" FontWeight="SemiBold" />
+                        <TextBlock Text="Свадебная фотография" Foreground="#6B7280" FontSize="13" />
+                      </StackPanel>
+                    </Grid>
+                    
+                    <Grid ColumnDefinitions="Auto,*,Auto">
+                      <StackPanel Grid.Column="0" Orientation="Horizontal" Spacing="4">
+                        <PathIcon Data="M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 0 00.475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 00-.182.557l1.285 5.385a.562.562 0 01-.84.61l-4.725-2.885a.563.563 0 00-.586 0L6.982 20.54a.562.562 0 01-.84-.61l1.285-5.386a.562.562 0 00-.182-.557l-4.204-3.602a.563.563 0 01.321-.988l5.518-.442a.563.563 0 00.475-.345L11.48 3.5z"  Width="16" Height="16" />
+                        <TextBlock Text="4.9" FontSize="13" />
+                        <TextBlock Text="(127)" Foreground="#6B7280" FontSize="13" />
+                      </StackPanel>
+                      
+                      <StackPanel Grid.Column="2" Orientation="Horizontal" Spacing="4">
+                        <PathIcon Data="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" Foreground="#6B7280" Width="16" Height="16" />
+                        <TextBlock Text="Москва" Foreground="#6B7280" FontSize="13" />
+                      </StackPanel>
+                    </Grid>
+                    
+                    <Grid ColumnDefinitions="Auto,*">
+                      <TextBlock Grid.Column="0" Text="от ₽15,000" FontWeight="SemiBold" VerticalAlignment="Center" />
+                      <Button Grid.Column="1" Content="Подробнее" HorizontalAlignment="Right" Background="#2563EB" Foreground="White" Padding="12,8" CornerRadius="4" />
+                    </Grid>
+                  </StackPanel>
+                </Grid>
+              </Border>
+              
+              <!-- Фотограф 2 -->
+              <Border Background="White" BorderBrush="#E5E7EB" BorderThickness="2" CornerRadius="8" Margin="8" Width="300">
+                <Grid RowDefinitions="250,Auto">
+                  <!-- Фото из портфолио -->
+                  <Border Grid.Row="0" Background="#F3F4F6">
+                    <Panel>
+                      <Image Source="/Assets/placeholder-image.png" Stretch="UniformToFill" />
+                      <TextBlock Text="Изображение" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#9CA3AF" />
+                    </Panel>
+                  </Border>
+                  
+                  <!-- Информация о фотографе -->
+                  <StackPanel Grid.Row="1"  Spacing="12">
+                    <Grid ColumnDefinitions="Auto,*">
+                      <Border Grid.Column="0" Width="40" Height="40" Background="#F3F4F6" CornerRadius="20">
+                        <TextBlock Text="Д" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" />
+                      </Border>
+                      <StackPanel Grid.Column="1" Margin="12,0,0,0">
+                        <TextBlock Text="Дмитрий Козлов" FontWeight="SemiBold" />
+                        <TextBlock Text="Портретная съемка" Foreground="#6B7280" FontSize="13" />
+                      </StackPanel>
+                    </Grid>
+                    
+                    <Grid ColumnDefinitions="Auto,*,Auto">
+                      <StackPanel Grid.Column="0" Orientation="Horizontal" Spacing="4">
+                        <PathIcon Data="M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 0 00.475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 00-.182.557l1.285 5.385a.562.562 0 01-.84.61l-4.725-2.885a.563.563 0 00-.586 0L6.982 20.54a.562.562 0 01-.84-.61l1.285-5.386a.562.562 0 00-.182-.557l-4.204-3.602a.563.563 0 01.321-.988l5.518-.442a.563.563 0 00.475-.345L11.48 3.5z" Width="16" Height="16" />
+                        <TextBlock Text="4.8" FontSize="13" />
+                        <TextBlock Text="(89)" Foreground="#6B7280" FontSize="13" />
+                      </StackPanel>
+                      
+                      <StackPanel Grid.Column="2" Orientation="Horizontal" Spacing="4">
+                        <PathIcon Data="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" Foreground="#6B7280" Width="16" Height="16" />
+                        <TextBlock Text="СПб" Foreground="#6B7280" FontSize="13" />
+                      </StackPanel>
+                    </Grid>
+                    
+                    <Grid ColumnDefinitions="Auto,*">
+                      <TextBlock Grid.Column="0" Text="от ₽8,000" FontWeight="SemiBold" VerticalAlignment="Center" />
+                      <Button Grid.Column="1" Content="Подробнее" HorizontalAlignment="Right" Background="#2563EB" Foreground="White" Padding="12,8" CornerRadius="4" />
+                    </Grid>
+                  </StackPanel>
+                </Grid>
+              </Border>
+            </ItemsControl.Items>
+          </ItemsControl>
+        </Grid>
+      </ContentControl>
+    </ScrollViewer>
+  </Grid>
+</UserControl>

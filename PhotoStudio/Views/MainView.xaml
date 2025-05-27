@@ -1,0 +1,105 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="using:PhotoStudio.ViewModels"
+             mc:Ignorable="d"
+             d:DesignWidth="800"
+             d:DesignHeight="600"
+             x:Class="PhotoStudio.Views.MainView">
+
+    <Design.DataContext>
+        <vm:MainViewModel />
+    </Design.DataContext>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <!-- Верхняя панель -->
+        <Border Grid.Row="0" 
+                Background="#2563EB" 
+                Height="64" 
+                Padding="16">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                
+                <!-- Логотип -->
+                <TextBlock Grid.Column="0" 
+                           Text="PhotoStudio" 
+                           Foreground="White" 
+                           VerticalAlignment="Center" 
+                           FontSize="20" 
+                           FontWeight="Bold" />
+                
+                <!-- Пользователь -->
+                <TextBlock Grid.Column="2" 
+                           Text="{Binding UserName}" 
+                           Foreground="White" 
+                           VerticalAlignment="Center" 
+                           Margin="16,0,0,0" />
+            </Grid>
+        </Border>
+
+        <!-- Основное содержимое -->
+        <Grid Grid.Row="1" Margin="32">
+            <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+                <TextBlock Text="{Binding WelcomeMessage}" 
+                           FontSize="24" 
+                           FontWeight="Bold" 
+                           HorizontalAlignment="Center" 
+                           Margin="0,0,0,16" />
+                
+                <TextBlock Text="Вы успешно вошли в PhotoStudio!" 
+                           FontSize="18" 
+                           HorizontalAlignment="Center" 
+                           Margin="0,0,0,32" />
+                
+                <Border Background="#f0f9ff" 
+                        CornerRadius="8" 
+                        Padding="32" 
+                        Width="400">
+                    <StackPanel>
+                        <TextBlock Text="Что вы хотите сделать сегодня?" 
+                                   FontSize="16" 
+                                   FontWeight="SemiBold" 
+                                   HorizontalAlignment="Center" 
+                                   Margin="0,0,0,16" />
+                        
+                        <Button Content="Просмотреть галерею" 
+                                HorizontalAlignment="Stretch" 
+                                HorizontalContentAlignment="Center"
+                                Height="48"
+                                Background="#2563EB"
+                                Foreground="White"
+                                CornerRadius="4"
+                                Margin="0,0,0,8" />
+                        
+                        <Button Content="Создать новый проект" 
+                                HorizontalAlignment="Stretch" 
+                                HorizontalContentAlignment="Center"
+                                Height="48"
+                                Background="#2563EB"
+                                Foreground="White"
+                                CornerRadius="4"
+                                Margin="0,0,0,8" />
+                        
+                        <Button Content="Настройки профиля" 
+                                HorizontalAlignment="Stretch" 
+                                HorizontalContentAlignment="Center"
+                                Height="48"
+                                Background="#2563EB"
+                                Foreground="White"
+                                CornerRadius="4" />
+                    </StackPanel>
+                </Border>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</UserControl>

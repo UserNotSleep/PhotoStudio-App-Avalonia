@@ -1,0 +1,26 @@
+<Application xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:vm="using:PhotoStudio.ViewModels"
+             xmlns:converters="using:PhotoStudio.ViewModels.Converters"
+             xmlns:local="using:PhotoStudio"
+             x:Class="PhotoStudio.App"
+             RequestedThemeVariant="Light">
+    <!-- "Default" ThemeVariant follows system theme variant. "Dark" or "Light" are other available options. -->
+    
+    <Application.Resources>
+        <converters:RoleTextConverter x:Key="RoleTextConverter"/>
+        <converters:RoleBackgroundConverter x:Key="RoleBackgroundConverter"/>
+        <converters:RoleBorderConverter x:Key="RoleBorderConverter"/>
+        <converters:RoleSelectedConverter x:Key="RoleSelectedConverter"/>
+        <converters:RoleContinueTextConverter x:Key="RoleContinueTextConverter"/>
+        <converters:AuthViewConverter x:Key="AuthViewConverter"/>
+    </Application.Resources>
+    
+    <Application.DataTemplates>
+        <local:ViewLocator/>
+    </Application.DataTemplates>
+  
+    <Application.Styles>
+        <FluentTheme />
+    </Application.Styles>
+</Application>

@@ -1,0 +1,32 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="using:PhotoStudio.ViewModels"
+             xmlns:converters="using:PhotoStudio.ViewModels.Converters"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="600"
+             x:DataType="vm:AuthViewModel"
+             x:Class="PhotoStudio.Views.AuthView">
+
+  <Design.DataContext>
+    <vm:AuthViewModel />
+  </Design.DataContext>
+
+  <Panel>
+    <!-- Main container -->
+    <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto">
+      <Panel Background="#F9FAFB" MinHeight="{Binding $parent[Window].Height}">
+        <!-- Switch between different views -->
+        <ContentControl>
+          <ContentControl.Content>
+            <Binding Path="CurrentView">
+              <Binding.Converter>
+                <converters:AuthViewConverter />
+              </Binding.Converter>
+            </Binding>
+          </ContentControl.Content>
+        </ContentControl>
+      </Panel>
+    </ScrollViewer>
+  </Panel>
+</UserControl>

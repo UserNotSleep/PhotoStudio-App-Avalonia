@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AvaloniaProject">
+    <option name="projectPerEditor">
+      <map>
+        <entry key="PhotoStudio/App.axaml" value="PhotoStudio/PhotoStudio.csproj" />
+        <entry key="PhotoStudio/Views/AppSuccessView.axaml" value="PhotoStudio/PhotoStudio.csproj" />
+        <entry key="PhotoStudio/Views/AuthView.axaml" value="PhotoStudio/PhotoStudio.csproj" />
+        <entry key="PhotoStudio/Views/ForgotPasswordView.axaml" value="PhotoStudio/PhotoStudio.csproj" />
+        <entry key="PhotoStudio/Views/LoginView.axaml" value="PhotoStudio/PhotoStudio.csproj" />
+        <entry key="PhotoStudio/Views/MainWindow.axaml" value="PhotoStudio/PhotoStudio.csproj" />
+        <entry key="PhotoStudio/Views/RegisterView.axaml" value="PhotoStudio/PhotoStudio.csproj" />
+        <entry key="PhotoStudio/Views/RoleSelectionView.axaml" value="PhotoStudio/PhotoStudio.csproj" />
+      </map>
+    </option>
+  </component>
+</project>
